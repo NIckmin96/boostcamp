@@ -12,3 +12,6 @@
 
 ## 벡터의 각도
 - 제 2코사인 법칙 사용 : <https://alive-earth.com/87>
+
+## Todo
+- vector projection에 대해 좀 더 알아보기(internet or 'Linear Algebra')
