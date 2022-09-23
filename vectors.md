@@ -7,4 +7,4 @@
 
 ## Norm
 - L1-Norm : ${\sum}_{i=1}^{d}{\lvert}x{\rvert}$
-- L2-Norm : $\sqrt{{\sum}_{i=1}^{d}{{\lvert}x{\rvert}}^2}
+- L2-Norm : $\sqrt{{\sum}_{i=1}^{d}{{\lvert}x{\rvert}}^2}$
