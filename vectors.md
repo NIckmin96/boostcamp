@@ -6,4 +6,4 @@
 - 벡터는 원점으로부터의 '상대적 위치'를 의미
 
 ## Norm
-- L1-Norm : \nabla
+- L1-Norm : $\nabla$
