@@ -11,5 +11,5 @@
  # 선형회귀분석
  - ${\beta}$를 추정해야 하는 선형회귀식에서 역행렬 계산$(X{\beta} = y {\rightarrow} {\beta} = X^+y)$을 통해 ${\beta}$를 계산할 수 있다
  - sklearn의 LinearRegression과 같은 Logic
-$(X{\beta} = y$
-{\rightarrow} {\beta} = X^+y)$
+$(X{\beta} = y$.  
+${\rightarrow} {\beta} = X^+y)$
