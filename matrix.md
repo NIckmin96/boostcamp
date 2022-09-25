@@ -7,3 +7,7 @@
  - 유사역행렬 / 무어 펜로즈 역행렬
    - $n>=m : A^+ = (A^TA)^{-1}A^T$
    - $n<=m : A^+ = A^T(AA^T)^{-1}$
+ - 'np.linalg.pinv'를 이용하면 연립방정식의 해를 구할 수 있다
+ # 선형회귀분석
+ - ${\beta}$를 추정해야 하는 선형회귀식에서 역행렬 계산을 통해 ${\beta}$를 계산할 수 있다
+ - sklearn의 LinearRegression과 같은 Logic
