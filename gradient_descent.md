@@ -8,7 +8,8 @@
   - 오차를 최소화하기 위해서 오차항의 미분값을 계산하여 미분값이 0에 근사할 때까지 Parameter를 업데이트 해주어야 한다.   
   - $$parameter = learing\ rate * parameter$$
   '''
-  코드로 나타내기{
+  function()
+  {
   var = init
   grad = gradient(var)
   while(abs(grad) > eps) : 
