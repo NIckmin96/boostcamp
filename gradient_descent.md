@@ -9,20 +9,10 @@
   - $$parameter = learing\ rate * parameter$$
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
-
-
-```
-
-```
-  function()  {
-  var = init;
-  grad = gradient(var);
+  var = init
+  grad = gradient(var)
   while(abs(grad) > eps) : 
-    var = var - lr * grad;
-    grad = gradient(var);
-  }
-
+    var = var - lr * grad
+    grad = gradient(var)
+```
 
