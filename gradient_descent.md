@@ -11,10 +11,23 @@
 ```
   var = init
   grad = gradient(var)
+  # eps : 컴퓨터로 계산할 경우, 미분값이 정확히 0이 되는 것은 불가능하므로 매우 작은 값을 threshold로 사용한다.
   while(abs(grad) > eps) : 
     var = var - lr * grad
     grad = gradient(var)
-    
-  # eps : 컴퓨터로 계산할 경우, 미분값이 정확히 0이 되는 것은 불가능하므로 매우 작은 값을 threshold로 사용한다.
+   
 ```
 
+### 변수가 다변량인경우 (Multi-Variate)
+- 위의 방식과 동일
+- 다만, 편미분을 이용(Partial differentiation)
+- Gradient vector : 각 변수 별로 편미분을 계산한 값(각 변수별 편미분값)의 벡터
+```
+# Multi-Variate Case
+var = init
+grad = gradient(var)
+while(norm(grad) > eps) : 
+  var = var - lr*grad
+  grad = gradient(var)
+  
+```
