@@ -26,6 +26,7 @@
 # Multi-Variate Case
 var = init
 grad = gradient(var)
+# norm(grad) : gradient vector를 사용하기 때문에, norm을 계산해야한다.
 while(norm(grad) > eps) : 
   var = var - lr*grad
   grad = gradient(var)
