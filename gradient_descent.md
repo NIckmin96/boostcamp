@@ -1,4 +1,3 @@
-\begin{document}
 # Gradient Descent
 
 ## Gradient
@@ -10,4 +9,4 @@
   - $$parameter = learing \, rate * parameter$$
 
 
-\end{document}
+
