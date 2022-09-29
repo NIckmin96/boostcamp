@@ -16,7 +16,7 @@ function test() {
 
 ```
 
-  '''
+
   function()  {
   var = init;
   grad = gradient(var);
@@ -24,6 +24,5 @@ function test() {
     var = var - lr * grad;
     grad = gradient(var);
   }
-  '''
 
 
