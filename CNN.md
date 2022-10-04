@@ -11,3 +11,5 @@
     - Parameter수를 줄이는 목적
     - e.g. bottleneck architecture
 - **Q. Kernel을 정사각형이 아닌 다른 형태로 구성해도 괜찮은가?**
+    - 다른 모양의 kernel도 가능하다!
+    - https://openreview.net/forum?id=r1vuQG-CW&fbclid=IwAR0ybrDv0SY-IzI3t7Eo914a1bGL8Wu5bJjKDVA2BuugVa6TERquVL12rM4
