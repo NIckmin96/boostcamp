@@ -19,7 +19,7 @@
     - Large batch size → Sharp Minimizer
     - **Small batch size → Flat Minimizer → 경험적으로 더 좋다!**
 - Optimization
-    - {link}https://dev-jm.tistory.com/10
+    - https://dev-jm.tistory.com/10
     - (stochastic) gradient descent
         - 일반적인 optimization method
         - 적절한 Learning rate 설정에 어려움이 있음
