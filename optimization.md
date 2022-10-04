@@ -36,7 +36,6 @@
     - Adadelta
         - no learning rate in Adadelta
         - EMA(Exponential Moving Average)
-            - 
     - RMSprop
     - Adam
         - Momentum + EMA
