@@ -1,0 +1,28 @@
+- Sequential Model + Data
+- Input data의 shape(length)에 상관없이 모델이 동작해야함
+    - Fix the past time span : Markov Model(First order autoregressive model)
+    - Latent Autoregressive Model
+        - Hidden State(과거의 정보를 요약) → Hidden state를 input으로 다시 사용
+- Short-term Dependencies : Vanila RNN의 단점
+    - 과거의 정보가 미래까지 살아남기 힘들다
+- **Activation Functions** in Recurrent Neural Network
+    - Sigmoid : Vanishing Gradient
+    - ReLU : Exploding Gradient
+    - **tanh**
+- LSTM(Long Short Term Memory)
+    - Data
+        - Input
+        - Previous Cell State
+        - Previous Hidden State
+        - Output(Hidden State)
+    - Gate
+        - Forget Gate : 어떤 정보를 cell state에서 버릴지 결정
+        - Input Gate : 어떤 정보를 cell state에 저장할지 결정
+            - $i_t$ : sigmoid
+            - $C_t$ : tanh
+        - Output Gate
+- GRU(Gated Recurrent Unit)
+    - Two gates
+        - Reset Gate
+        - Update Gate
+    - No cell state, just hidden state
