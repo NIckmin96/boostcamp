@@ -18,7 +18,7 @@
     - Gate
         - Forget Gate : 어떤 정보를 cell state에서 버릴지 결정
         - Input Gate : 어떤 정보를 cell state에 저장할지 결정
-            - $i_t = \{sigma}(W_{xi}x_t+W_{hi}h_{t-1}+b_i)$
+            - $i_t = \sigma(W_{xi}x_t+W_{hi}h_{t-1}+b_i)$
             - $C_t$ : tanh
         - Output Gate
 - GRU(Gated Recurrent Unit)
