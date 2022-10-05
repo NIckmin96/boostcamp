@@ -19,7 +19,9 @@
         - Forget Gate : 어떤 정보를 cell state에서 버릴지 결정
         - Input Gate : 어떤 정보를 cell state에 저장할지 결정
             - $i_t = \sigma(W_{xi}x_t+W_{hi}h_{t-1}+b_i)$
-            - $C_t$ : tanh
+            - 이전 시점의 hidden state와 현재 시점의 input 데이터에 각각 가중치를 곱하여 더한 값에 시그모이드 함수를 거친 값
+            - $C_t = tanh(W_{xg}x_t+W_{hg}h_{t-1}+b_g)$
+            - 이전 시점의 hidden state와 현재 시점의 input 데이터에 각각 가중치를 곱하여 더한 값에 하이퍼볼릭탄젠트 함수를 거친 값
         - Output Gate
 - GRU(Gated Recurrent Unit)
     - Two gates
