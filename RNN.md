@@ -9,7 +9,7 @@
     - Sigmoid : Vanishing Gradient
     - ReLU : Exploding Gradient
     - **tanh**
-- LSTM(Long Short Term Memory)
+- LSTM(Long Short Term Memory) https://wikidocs.net/22888
     - Data
         - Input
         - Previous Cell State
