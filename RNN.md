@@ -26,10 +26,8 @@
         - __Cell State를 구하는 법__
             - $C_t = f_t \circ C_{t-1} + i_t \circ g_t$
             - forget gate의 결과와 이전 시점의 cell state의 원소곱 + 입력 게이트의 결과끼리의 원소곱
-            - 만약, 삭제 게이트의 출력값인 $f_t$가 0이라면, 이전 시점의 cell state값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 현재 시점의 입력 게이트 결과만이   
-                현재 시점의 cell state를 결정한다. 
-            - 반대로 입력 게이트의 $i_t$가 0이라면, 현재 시점의 input값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 이전 시점의 cell state만이   
-                현재 시점의 cell state를 결정한다. 
+            - 만약, 삭제 게이트의 출력값인 $f_t$가 0이라면, 이전 시점의 cell state값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 현재 시점의 입력 게이트 결과만이 현재 시점의 cell state를 결정한다. 
+            - 반대로 입력 게이트의 $i_t$가 0이라면, 현재 시점의 input값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 이전 시점의 cell state만이 현재 시점의 cell state를 결정한다. 
 - GRU(Gated Recurrent Unit)
     - Two gates
         - Reset Gate
