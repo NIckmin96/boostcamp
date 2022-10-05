@@ -18,7 +18,7 @@
     - Gate
         - Forget Gate : 어떤 정보를 cell state에서 버릴지 결정
         - Input Gate : 어떤 정보를 cell state에 저장할지 결정
-            - $i_t$ : sigmoid
+            - $i_t = \{sigmoid}(W_{xi}x_t+W_{hi}h_{t-1}+b_i$
             - $C_t$ : tanh
         - Output Gate
 - GRU(Gated Recurrent Unit)
@@ -26,3 +26,11 @@
         - Reset Gate
         - Update Gate
     - No cell state, just hidden state
+
+- cf) Bidirectional RNN
+    - 시점 t에서의 출력값을 예측할때 이전 시점의 입력뿐만 아니라, 이후 시점의 입력 또한 예측에 기여할 수 있다는 아이디어에 기반
+    - e.g. 운동을 열심히 하는 것은 [    ]을 늘리는데 효과적이다.
+    - 이전의 단어 뿐만 아니라 이후의 단어를 고려해야 문제를 맞출 수 있다.
+    - 2개의 메모리 cell 사용
+        - 한개는 이전 시점의 hidden state(Forward State)를 전달 받아 현재 시점의 hidden state를 계산
+        - 다른 한개는 이후 시점의 hidden state(Backward State)를 전달 받아 현재 시점의 hidden state를 계산
