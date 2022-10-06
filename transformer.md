@@ -34,7 +34,8 @@
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
             - Q,K,V를 얻는 방법
                 - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} * (d_{model}/num\ heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다
-            - Embedding vector 생성 후,
+            - Embedding vector(Q,K,V) 생성 후,
+                - __Scaled Dot product Attention 진행__
                 1. Query , Key, Value vector를 embedding vector로 부터 만들어냄
                 2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
                 3. 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
