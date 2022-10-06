@@ -9,6 +9,21 @@
     - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
     - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
     - e.g. French → English
+- Attention
+    - seq2seq의 단점   
+        - seq2seq은 하나의 고정된 크기의 벡터에 모든 정보를 압축하려고 하기 때문에 정보 손실 발생
+        - RNN모델의 문제인 Vanishing Gradient
+    - __Decoder에서 출력 단어를 예측하는 매시점마다 인코더에서의 전체 입력 문장을 다시 한번 참고하게 된다.__
+    - Query, Key, Value
+        - Attention(Q,K,V) = Attention Value
+        - Attention함수는 주어진 Query에 대해서 모든 Key와의 유사도를 각각 구하고, 이 유사도를 Value에 반영해주고 그 Value vector를 모두 더해서 return
+        - __Query__ : t 시점의 디코더 셀에서의 hidden state
+        - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+        - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+        - Key, Value 는 Dictionary에서 사용하는 개념과 같다.
+    - Dot product Attention
+        - ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+
 - Transformer의 기본 원리
     - Encoder
         - Self-attention
