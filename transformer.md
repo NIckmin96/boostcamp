@@ -24,10 +24,16 @@
     - Dot product Attention
         - ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
 
-- Transformer의 기본 원리
+- Transformer의 기본 원리 [https://wikidocs.net/31379]
+    - __IDEA__ : RNN구조를 따로 사용하지 않고, attention(encoder, decoder)만으로 모델을 구성
     - Encoder
+        - Multi-head Self-attention + Feed forward Neural Network(FFNN)
         - Self-attention
+            - Encoder내에서만 attention 수행
+            - Query,Key,Value가 모두 Encoder에서 생성
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
+            - Q,K,V를 얻는 방법
+                - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} x (d_{model}/num_heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다
             - Embedding vector 생성 후,
                 1. Query , Key, Value vector를 embedding vector로 부터 만들어냄
                 2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
@@ -43,8 +49,8 @@
     - Decoder
         - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
         - output 결과는 순서대로 나옴
-    - Masking
-        - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습
+        - Masked Decoder Attention
+            - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습
 - 다른 분야에 적용된 Transformer 기법
     - Vision Transformer
         - 이미지 데이터에 대해서 transformer 사용
