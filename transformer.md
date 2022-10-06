@@ -33,7 +33,7 @@
             - Query,Key,Value가 모두 Encoder에서 생성
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
             - Q,K,V를 얻는 방법
-                - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} * (d_{model}/num {_} heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다
+                - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} * (d_{model}/num{_}heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다
             - Embedding vector 생성 후,
                 1. Query , Key, Value vector를 embedding vector로 부터 만들어냄
                 2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
