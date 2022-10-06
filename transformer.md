@@ -1,7 +1,11 @@
 - “the first sequence transduction model based entirely on **attention**”
-- **sequence-to-sequence**
-    - 하나의 모델에서
-    - 입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
+- **sequence-to-sequence** [https://wikidocs.net/24996]
+    - Encoder, Decoder 구조를 갖는다.
+    - encoder, decoder는 각각 여러개의 RNN 셀로 구성이 되어있다.
+    - ![seq2seq]([https://wikidocs.net/images/page/24996/%EC%9D%B8%EC%BD%94%EB%8D%94%EB%94%94%EC%BD%94%EB%8D%94%EB%AA%A8%EB%8D%B8.PNG])
+    - Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector__라고 한다.
+    - Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
+    - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
     - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
     - e.g. French → English
 - Transformer의 기본 원리
