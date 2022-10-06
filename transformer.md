@@ -17,8 +17,8 @@
     - Query, Key, Value
         - Attention(Q,K,V) = Attention Value
         - Attention함수는 주어진 Query에 대해서 모든 Key와의 유사도를 각각 구하고, 이 유사도를 Value에 반영해주고 그 Value vector를 모두 더해서 return
-        - __Query__ : t 시점의 디코더 셀에서의 hidden state
-        - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+        - __Query__ : t 시점의 디코더 셀에서의 hidden state = decoder의 현시점(t)에서의 Hidden state
+        - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping) = 
         - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping)
         - Key, Value 는 Dictionary에서 사용하는 개념과 같다.
     - Dot product Attention
@@ -29,10 +29,10 @@
         - Self-attention
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
             - Embedding vector 생성 후,
-                - Query , Key, Value vector를 embedding vector로 부터 만들어냄
-                - 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
-                - 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
-                - 그 결과를 value 벡터에 곱해주고 sum을 취한 값을 사용 → **weighted sum of ‘value vector’**
+                1. Query , Key, Value vector를 embedding vector로 부터 만들어냄
+                2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
+                3. 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
+                4. 그 결과를 value 벡터에 곱해주고 sum을 취한 값을 사용 → **weighted sum of ‘value vector’**
         - Transformer의 neural network는 가변적이고 유연한 모델이다 → 성능이 좋아짐
         - Multi headed attention(MHA) : Attention을 여러번 반복
             - encoding 결과가 n개 나오게 된다
@@ -51,7 +51,7 @@
     - DALL-E
         - 문장이 주어졌을 때, 이미지를 생성
 - Embedding과 Encoding의 차이
-    - [https://jamesmccaffrey.wordpress.com/2022/08/02/the-difference-between-encoding-embedding-and-latent-representation-in-my-world/](https://jamesmccaffrey.wordpress.com/2022/08/02/the-difference-between-encoding-embedding-and-latent-representation-in-my-world/)
+    - [https://jamesmccaffrey.wordpress.com/2022/08/02/the-difference-between-encoding-embedding-and-latent-representation-in-my-world/]
     - Embedding
         - Embedding converts an integer word ID to a vector
         - e.g. “the” = 4  = [-0.1234, 1.9876,…, 3.4681]
