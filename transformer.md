@@ -1,0 +1,40 @@
+- “the first sequence transduction model based entirely on **attention**”
+- **sequence-to-sequence**
+    - 하나의 모델에서
+    - 입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
+    - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
+    - e.g. French → English
+- Transformer의 기본 원리
+    - Encoder
+        - Self-attention
+            - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
+            - Embedding vector 생성 후,
+                - Query , Key, Value vector를 embedding vector로 부터 만들어냄
+                - 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
+                - 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
+                - 그 결과를 value 벡터에 곱해주고 sum을 취한 값을 사용 → **weighted sum of ‘value vector’**
+        - Transformer의 neural network는 가변적이고 유연한 모델이다 → 성능이 좋아짐
+        - Multi headed attention(MHA) : Attention을 여러번 반복
+            - encoding 결과가 n개 나오게 된다
+        - Positional encoding
+            - self-attention 연산은 input의 순서를 고려하지 않는다
+            - 따라서, 주어진 입력에 어떤 값을 더해준다
+        - Self Attention 후에는 feed forward 연산을 수행한다
+    - Decoder
+        - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
+        - output 결과는 순서대로 나옴
+    - Masking
+        - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습
+- 다른 분야에 적용된 Transformer 기법
+    - Vision Transformer
+        - 이미지 데이터에 대해서 transformer 사용
+    - DALL-E
+        - 문장이 주어졌을 때, 이미지를 생성
+- Embedding과 Encoding의 차이
+    - [https://jamesmccaffrey.wordpress.com/2022/08/02/the-difference-between-encoding-embedding-and-latent-representation-in-my-world/](https://jamesmccaffrey.wordpress.com/2022/08/02/the-difference-between-encoding-embedding-and-latent-representation-in-my-world/)
+    - Embedding
+        - Embedding converts an integer word ID to a vector
+        - e.g. “the” = 4  = [-0.1234, 1.9876,…, 3.4681]
+    - Encoding
+        - Encoding converts categorical data to numeric data
+        - e.g. “red” = [ 0 1 0 0]
