@@ -5,4 +5,4 @@
 - Bayesian
   - 어떤 사건이 일어날 것이라는 합리적 기대로 볼 수 있음
   - Posterior probability = Likelihood * Prior Probability / Evidence
-$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+  - $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
