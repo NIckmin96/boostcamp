@@ -25,4 +25,4 @@
   -  Posterior : 양성판정을 받았을 때, 실제로 감염된 확률 = target
   -  Prior : COVID-99의 발병률 = $P(A)$ = 10%
   -  Likelihood : 감염되었을 때, 양성판정 받는 확률 = $P(B|A)$ = 99%
-  -  Evidence : 양성 판정을 받는 확률 = $P(B|A) * P(A) + P(B|~A) \{x} P(~A)$ = 0.99x0.1 + 0.01x0.9 = 0.108
+  -  Evidence : 양성 판정을 받는 확률 = $P(B|A) * P(A) + P(B|~A) * P(~A)$ = 0.99x0.1 + 0.01x0.9 = 0.108
