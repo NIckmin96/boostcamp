@@ -6,3 +6,23 @@
   - 어떤 사건이 일어날 것이라는 합리적 기대로 볼 수 있음
   - Posterior probability = Likelihood * Prior Probability / Evidence
   - $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
+  - Posterior Probability(사후 확률)
+    - 결과(B)가 발생하였다는 조건하에서 원인(A)이 발생하였을 확률
+    - $P(A|B)$
+  - Prior Probability(사전 확률)
+    - 결과가 나타나기 이전에 이미 결정되어 있는 원인(A)의 확률
+    - $P(A)$
+  - Likelihood Probability(우도 확률)
+    - 원인(A)이 발생하였다는 조건하에서 결과(B)가 발생할 확률
+    - $P(B|A)$
+  - Evidence
+    - 조건 없이 결과(B)가 나타날 확률
+    - $P(B)$
+- 예제
+  -  COVID-99의 발병률이 10%로 알려져있다. COVID-99에 실제로 걸렸을 때 검진될 확률은 99%이고 실제로 걸리지 않았을 때 오검진될 확률이 1%라고 할때, 어떤 사람이 질병에 걸렸다고 검진결과가 나왔을 때 정말 COVID-99에 감염되었을 확률은?
+  -  A : COIVD-99에 실제로 감염된 경우
+  -  B : 양성 판정 받은 경우
+  -  Posterior : 양성판정을 받았을 때, 실제로 감염된 확률 = target
+  -  Prior : COVID-99의 발병률 = $P(A)$ = 10%
+  -  Likelihood : 감염되었을 때, 양성판정 받는 확률 = $P(B|A)$ = 99%
+  -  Evidence : 양성 판정을 받는 확률 = $P(B|A) * P(A) + P(B|~A) * P(~A)$ = 0.99*0.1 + 0.01*0.9 = 0.108
