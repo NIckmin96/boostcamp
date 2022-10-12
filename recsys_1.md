@@ -108,25 +108,25 @@
         - A/B Test
             - Offline Test에서 검증된 가설이나 모델을 이용해 실제 추천 결과를 서빙하는 단계
             - 동시에 평가
-- 인기도 기반 추천
-    1. 조회수가 가장 많은 아이템을 추천(Most Popular)
-        - 뉴스 추천
-        - Score Formula : $f(popularity, age)$ *age : 뉴스의 생성 날짜
-            - 조회수가 빠르게 늘어나게 되면 시간이 지나도 예전 뉴스가 상위에 Rank되는 문제 존재
-        - Hacker News Formula
-            - gravity(=1.8)
-            - $score = \frac{pageviews - 1}{(age+2)^{gravity}}$
-            - 시간이 지날수록 age가 점점 증가하므로 score는 작아짐
-        - Reddit Formula
-            - $score = log_{10}(ups-donws) + \frac{sign(ups-downs) \cdot seconds}{45000}$
-            - 최근 포스팅된 글에 더 높은 점수(가중치)를 부여
-            - **seconds** : 글이 포스팅 된 절대 시간값
-            - **log** : 초반 vote에 대해서는 높은 값, 나중의 vote에 대해서는 낮은 값 부여
-    2. 평균 평점이 가장 높은 아이템을 추천(Highly Rated)
-        - 맛집 추천
-        - Score Formula : f(rating, # of ratings)
-        - Steam Rating Formula
-            - $avg\ rating = \frac{num\ of\ positive \ reviews}{num\ of\ reviews}$
-            - $score = avg\ rating - (avg\ rating - 0.5) \cdot 2^{-log(num\ of\ reviews)}$
-        - review의 개수가 아주 많을 경우 score는 평균 rating과 거의 유사해짐
-            - 음수 항이 0에 가까워 지기 때문에
+    - 인기도 기반 추천
+        1. 조회수가 가장 많은 아이템을 추천(Most Popular)
+            - 뉴스 추천
+            - Score Formula : $f(popularity, age)$ *age : 뉴스의 생성 날짜
+                - 조회수가 빠르게 늘어나게 되면 시간이 지나도 예전 뉴스가 상위에 Rank되는 문제 존재
+            - Hacker News Formula
+                - gravity(=1.8)
+                - $score = \frac{pageviews - 1}{(age+2)^{gravity}}$
+                - 시간이 지날수록 age가 점점 증가하므로 score는 작아짐
+            - Reddit Formula
+                - $score = log_{10}(ups-donws) + \frac{sign(ups-downs) \cdot seconds}{45000}$
+                - 최근 포스팅된 글에 더 높은 점수(가중치)를 부여
+                - **seconds** : 글이 포스팅 된 절대 시간값
+                - **log** : 초반 vote에 대해서는 높은 값, 나중의 vote에 대해서는 낮은 값 부여
+        2. 평균 평점이 가장 높은 아이템을 추천(Highly Rated)
+            - 맛집 추천
+            - Score Formula : f(rating, # of ratings)
+            - Steam Rating Formula
+                - $avg\ rating = \frac{num\ of\ positive \ reviews}{num\ of\ reviews}$
+                - $score = avg\ rating - (avg\ rating - 0.5) \cdot 2^{-log(num\ of\ reviews)}$
+            - review의 개수가 아주 많을 경우 score는 평균 rating과 거의 유사해짐
+                - 음수 항이 0에 가까워 지기 때문에
