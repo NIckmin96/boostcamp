@@ -61,6 +61,7 @@
     - 다양성(Diversity)
     - 새로움(Novelty)
     - 참신함(Serendipity)
+## Offline Test
 - Offline Test
     - 새로운 추천 모델을 검증하기 위해 가장 우선적으로 수행되는 단계
     - Serving bias
@@ -104,6 +105,7 @@
         - Normalized Gain
             - 추천 결과에 따라 구해진 DCG를 IDCG로 나눈 값
             - $NDCG = \frac{IDCG}{DCG}$
+## Online Test
 - Online Test
     - A/B Test
         - Offline Test에서 검증된 가설이나 모델을 이용해 실제 추천 결과를 서빙하는 단계
