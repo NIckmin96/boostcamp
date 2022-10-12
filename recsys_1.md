@@ -1,52 +1,52 @@
 # Intro
 
-- Query : user가 원하는 정보의 keyword
-- 추천 시스템의 필요성
-    - 과거에는 유저가 접할 수 있는 상품, 컨텐츠가 제한적
-    - 웹,모바일 환경은 다양한 상품, 컨텐츠를 등장하게 함
-        - Long Tail Phenomenon
-    - 정보를 찾는데 시간이 오래 걸림
-        - 유저가 원하는 것을 어떤 키워드로 찾아야 하는지 모를 수 있음
-- Long-Tail Recommendation 사례
-    - 유튜브 동영상 추천
-    - SNS 친구 추천
-- 사용 데이터
-    - user info
-        - **User profiling** : user에 대한 정보를 구축
-        - 식별자(Identifier)
-            - 유저ID, 브라우저 ID, 쿠키
-        - 데모그래픽 정보
-            - 성별, 연령, 지역, 관심사 → 데이터를 구하기 어려울 경우, 추정도 함
-        - 유저 행동 정보
-            - 페이지 방문 기록, 아이템 평가, 구매 등의 피드백 기록
-    - item info
-        - Item Profiling : Item에 대한 정보를 구축
-        - Item ID
-        - Item Meta Data(아이템의 고유정보)
-    - user-item interaction info
-        - Explicit Feedback
-            - 유저에게 아이템에 대한 피드백을 **직접** 물어본 경우
-        - Implicit Feedback
-            - 유저가 아이템을 클릭하거나 구매한 경우 → **추정**
-- 추천 시스템의 목적
-    - 특정 유저에게 적합한 아이템을 추천 or 특정 아이템에게 적합한 유저를 추천
-    - 유저 - 아이템의 상호작용에 대해 평가할 수 있는 metric 필요
-    - 추천을 위한 **score 계산!**
-        - 랭킹 : 유저에게 적합한 아이템 Top K개를 추천하는 문제
-            - 유저가 아이템에 가지는 정확한 선호도를 구할 필요는 없음 → **상대적 비교만 가능하면 됨**
-            - Metrics
-                - Precision@K
-                - Recall@K
-                - MAP@K
-                - nDCG@K
-        - 예측 : 유저가 아이템에 가질 정확한 선호도를 예측(평점, 구매, 클릭할 확률)
-            - Explicit Feedback : 철수가 ‘아이언맨’에 매길 평점을 예측
-            - Implicit Feedback : 영희가 아이폰12를 구매하거나 조회할 확률을 예측
-            - **유저-아이템 행렬**을 채우는 문제
-            - Metrics
-                - MAE
-                - RMSE
-                - AUC
+    - Query : user가 원하는 정보의 keyword
+    - 추천 시스템의 필요성
+        - 과거에는 유저가 접할 수 있는 상품, 컨텐츠가 제한적
+        - 웹,모바일 환경은 다양한 상품, 컨텐츠를 등장하게 함
+            - Long Tail Phenomenon
+        - 정보를 찾는데 시간이 오래 걸림
+            - 유저가 원하는 것을 어떤 키워드로 찾아야 하는지 모를 수 있음
+    - Long-Tail Recommendation 사례
+        - 유튜브 동영상 추천
+        - SNS 친구 추천
+    - 사용 데이터
+        - user info
+            - **User profiling** : user에 대한 정보를 구축
+            - 식별자(Identifier)
+                - 유저ID, 브라우저 ID, 쿠키
+            - 데모그래픽 정보
+                - 성별, 연령, 지역, 관심사 → 데이터를 구하기 어려울 경우, 추정도 함
+            - 유저 행동 정보
+                - 페이지 방문 기록, 아이템 평가, 구매 등의 피드백 기록
+        - item info
+            - Item Profiling : Item에 대한 정보를 구축
+            - Item ID
+            - Item Meta Data(아이템의 고유정보)
+        - user-item interaction info
+            - Explicit Feedback
+                - 유저에게 아이템에 대한 피드백을 **직접** 물어본 경우
+            - Implicit Feedback
+                - 유저가 아이템을 클릭하거나 구매한 경우 → **추정**
+    - 추천 시스템의 목적
+        - 특정 유저에게 적합한 아이템을 추천 or 특정 아이템에게 적합한 유저를 추천
+        - 유저 - 아이템의 상호작용에 대해 평가할 수 있는 metric 필요
+        - 추천을 위한 **score 계산!**
+            - 랭킹 : 유저에게 적합한 아이템 Top K개를 추천하는 문제
+                - 유저가 아이템에 가지는 정확한 선호도를 구할 필요는 없음 → **상대적 비교만 가능하면 됨**
+                - Metrics
+                    - Precision@K
+                    - Recall@K
+                    - MAP@K
+                    - nDCG@K
+            - 예측 : 유저가 아이템에 가질 정확한 선호도를 예측(평점, 구매, 클릭할 확률)
+                - Explicit Feedback : 철수가 ‘아이언맨’에 매길 평점을 예측
+                - Implicit Feedback : 영희가 아이폰12를 구매하거나 조회할 확률을 예측
+                - **유저-아이템 행렬**을 채우는 문제
+                - Metrics
+                    - MAE
+                    - RMSE
+                    - AUC
 # 추천 시스템의 평가 지표
     - 비즈니스 / 서비스 관점
         - 추천 시스템 적용으로 인해 매출, PV의 증가
