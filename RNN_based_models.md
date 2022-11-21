@@ -56,10 +56,23 @@
     - Cell state
         - ![image](https://user-images.githubusercontent.com/81205952/203054503-ae0d7fd9-1995-4260-bc9f-29d3396f23f8.png)
         - $C_t = f_t \circ C_{t-1} + i_t \circ g_t$
-        - input gate에서 구한 값($g_t, i_t$)에 대해 elementwise-product를 계산( $\circ$ )
+        - input gate에서 구한 값( $g_t, i_t$ )에 대해 elementwise-product를 계산( $\circ$ )
         - input gate에서 선택된 기억을 forget gate의 결과값과 더함 -> __Cell state__
+    - Output gate
+        - $o_t = \sigma(W_{xo} x_t + W_{ho} h_{t-1} + b_o)$
+        - $h_t = o_t \circ tanh(c_t)$
+        - 현재 시점 t의 x값과 이전 시점 t-1의 은닉 상태(hidden state)가 시그모이드 함수를 지난 값
+        - 현재 시점 t의 hidden state를 결정하는 일에 사용
 
+# GRU(Gated Recurrent Unit)
 
+- LSTM의 장기 의존성에 대한 해결책을 유지하면서, hidden state를 업데이트하는 연산량을 줄임(__LSTM 간소화__)
+- __Update Gate, Reset Gate__ 두가지 게이트만 존재
+- 경험적으로, 데이터 양이 적을 때에는 GRU가 조금 더 낫고, 많으면 LSTM이 낫다고 함
+
+# Encoder-Decoder
+
+# Transformer
 
 - “the first sequence transduction model based entirely on **attention**”
 - **sequence-to-sequence** [https://wikidocs.net/24996]
