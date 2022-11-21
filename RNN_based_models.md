@@ -56,7 +56,7 @@
     - Cell state
         - ![image](https://user-images.githubusercontent.com/81205952/203054503-ae0d7fd9-1995-4260-bc9f-29d3396f23f8.png)
         - $C_t = f_t \circ C_{t-1} + i_t \circ g_t$
-        - input gate에서 구한 값($g_t, i_t)에 대해 elementwise-product를 계산($\circ$)
+        - input gate에서 구한 값($g_t, i_t$)에 대해 elementwise-product를 계산( $\circ$ )
         - input gate에서 선택된 기억을 forget gate의 결과값과 더함 -> __Cell state__
 
 
