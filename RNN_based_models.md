@@ -4,10 +4,24 @@
     - RNN의 cell(메모리 셀)은 이전의 값을 기억하려고 하는 메모리 역할을 수행
     - 현재 t시점에서 셀이 갖고 있는 값은 과거 메모리 셀의 값에 영향을 받은 값이고 현재(t)메모리 셀이 갖고 있는 값을 __hidden state__라고 한다.
     - RNN은 'one-to-many', 'many-to-one', 'many-to-many'등의 형태로 설계 가능하고 각각의 형태에 따라 쓰임이 다르다.
+
 ## 간단한 수식 정의
 - ![image](https://user-images.githubusercontent.com/81205952/203043343-b08101e3-2243-46d8-841f-642d0d4ffbdf.png)
-- $h_t = tanh(W_x x_t + W_h h_{t-1} + b)$
+- hidden layer : $h_t = tanh(W_x x_t + W_h h_{t-1} + b)$
+- output layer : $y_t = f(W_y h_t + b)$
+    - output을 sequence별로 각각 출력하게 되면 many-to-many 문제를 풀 수 있고
+    - 1개의 output만 출력하게 되면 many-to-one 문제를 풀 수 있다.
 
+## Deep RNN
+- 다수의 은닉층을 갖는 RNN
+- ![image](https://user-images.githubusercontent.com/81205952/203044566-e705f98e-8201-42a8-beb9-2e16d7297cb2.png)
+
+## Bidirectional RNN
+- t 시점에서의 출력값을 예측할 때 이전 시점 뿐만 아니라 이후 시점의 입력 또한 예측에 사용할 수 있다는 아이디어
+- ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+- 하나의 출력값을 예측하기 위해 두개의 메모리 셀을 사용
+    - Forward States(이전 시점의 hidden state를 받아 현재 은닉 상태를 계산)
+    - Backward States(이후 시점의 hiddent state를 받아 현재의 은닉 상태를 계산)
 
 
 - “the first sequence transduction model based entirely on **attention**”
