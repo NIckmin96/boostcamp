@@ -14,11 +14,11 @@
 
 ## Deep RNN
 - 다수의 은닉층을 갖는 RNN
-- ![image](https://user-images.githubusercontent.com/81205952/203044566-e705f98e-8201-42a8-beb9-2e16d7297cb2.png)
+- ![image](https://user-images.githubusercontent.com/81205952/203045422-372ff424-f6ba-4c93-97d5-9baf2271fec9.png)
 
 ## Bidirectional RNN
 - t 시점에서의 출력값을 예측할 때 이전 시점 뿐만 아니라 이후 시점의 입력 또한 예측에 사용할 수 있다는 아이디어
-- ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+- ![image](https://user-images.githubusercontent.com/81205952/203045522-7d31ed35-3ce7-4db7-a94c-018c114427b4.png)
 - 하나의 출력값을 예측하기 위해 두개의 메모리 셀을 사용
     - Forward States(이전 시점의 hidden state를 받아 현재 은닉 상태를 계산)
     - Backward States(이후 시점의 hiddent state를 받아 현재의 은닉 상태를 계산)
