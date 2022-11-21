@@ -1,3 +1,7 @@
+# RNN(Recurrent Neural Network)
+- 은닉층(hidden layer)의 노드에서 활성화 함수를 통해 나온 결과값을 출력층으로 보내면서, 다시 은닉층 노드의 다음 계산의 입력으로 보내는 특징을 갖는다.
+- ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+
 - “the first sequence transduction model based entirely on **attention**”
 - **sequence-to-sequence** [https://wikidocs.net/24996]
     - Encoder, Decoder 구조를 갖는다.
