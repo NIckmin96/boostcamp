@@ -1,6 +1,13 @@
 # RNN(Recurrent Neural Network)
 - 은닉층(hidden layer)의 노드에서 활성화 함수를 통해 나온 결과값을 출력층으로 보내면서, 다시 은닉층 노드의 다음 계산의 입력으로 보내는 특징을 갖는다.
-- ![image](https://user-images.githubusercontent.com/81205952/203042419-7a84eba5-d723-4e94-a35d-5d36d4cab26c.png)
+    - ![image](https://user-images.githubusercontent.com/81205952/203042419-7a84eba5-d723-4e94-a35d-5d36d4cab26c.png)
+    - RNN의 cell(메모리 셀)은 이전의 값을 기억하려고 하는 메모리 역할을 수행
+    - 현재 t시점에서 셀이 갖고 있는 값은 과거 메모리 셀의 값에 영향을 받은 값이고 현재(t)메모리 셀이 갖고 있는 값을 __hidden state__라고 한다.
+    - RNN은 'one-to-many', 'many-to-one', 'many-to-many'등의 형태로 설계 가능하고 각각의 형태에 따라 쓰임이 다르다.
+## 간단한 수식 정의
+- ![image](https://user-images.githubusercontent.com/81205952/203043343-b08101e3-2243-46d8-841f-642d0d4ffbdf.png)
+- $h_t = tanh(W_x x_t + W_h h_{t-1} + b)$
+
 
 
 - “the first sequence transduction model based entirely on **attention**”
