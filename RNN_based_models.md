@@ -31,7 +31,7 @@
 - sequence가 길어질 수록 앞의 정보가 사라지게 됨
 
 ## LSTM의 특징
-![image](https://user-images.githubusercontent.com/81205952/203046482-8dcfcf24-69f2-4924-8f4a-db2f5763e6ae.png)
+![image](https://user-images.githubusercontent.com/81205952/203050704-7c8194c5-f0b8-4242-9666-51e8f2067568.png)
 - Hidden layer의 메모리 셀에 __[입력 게이트(input gate), 망각 게이트(forget gate), 출력 게이트(output gate)]__를 추가
 - 불필요한 기억을 지우고, 기억해야할 것들을 정함
 - __Cell state__ : $C_t$
@@ -41,8 +41,8 @@
         - 시그모이드 함수의 출력값(0~1)을 통해서 게이트를 조절하는데 사용
     - Input Gate(입력 게이트)
     - ![image](https://user-images.githubusercontent.com/81205952/203048813-5d61116f-e33e-402d-b511-940c4cb65a4c.png)
-        - $i_t = \sigma(W_x x_t + W_{hi} h_{t-1} + b_i$
-        - $g_t = tanh(W_{xg} x_t + W_{hg} h_{t-1} + b_g$
+        - $i_t = \sigma(W_x x_t + W_{hi} h_{t-1} + b_i)$
+        - $g_t = tanh(W_{xg} x_t + W_{hg} h_{t-1} + b_g)$
 
 
 
