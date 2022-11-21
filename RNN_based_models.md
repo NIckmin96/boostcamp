@@ -35,15 +35,27 @@
 - Hidden layer의 메모리 셀에 __[입력 게이트(input gate), 망각 게이트(forget gate), 출력 게이트(output gate)]__를 추가
 - 불필요한 기억을 지우고, 기억해야할 것들을 정함
 - __Cell state__ : $C_t$
-    - ![image](https://user-images.githubusercontent.com/81205952/203046999-dfe0cd83-ffb7-42cc-bd50-0dc6e9712d43.png)
+    - ![image](https://user-images.githubusercontent.com/81205952/203050810-b52e91f4-8da5-4a0f-a4ba-d292d94b4160.png)
     - Hidden state와 비슷하지만 3개의 게이트로 이루어져있다는 것이 차이점
     - 3개의 게이트에는 공통적으로 __시그모이드 함수__가 존재
         - 시그모이드 함수의 출력값(0~1)을 통해서 게이트를 조절하는데 사용
     - Input Gate(입력 게이트)
     - ![image](https://user-images.githubusercontent.com/81205952/203048813-5d61116f-e33e-402d-b511-940c4cb65a4c.png)
+        - 현재 정보를 기억하기 위한 게이트
         - $i_t = \sigma(W_x x_t + W_{hi} h_{t-1} + b_i)$
+            - 현재 t시점 input과 t-1시점의 hidden state의 Linear combination에 sigmoid 함수를 씌운 값
         - $g_t = tanh(W_{xg} x_t + W_{hg} h_{t-1} + b_g)$
-
+            - 현재 t시점 input과 t-1시점의 hidden state의 Linear combination에 tanh 함수를 씌운 값
+    - Forget Gate(삭제 게이트)
+    - ![image](https://user-images.githubusercontent.com/81205952/203053859-4aee8894-1e78-46d4-bac9-a252006f5e8e.png)
+        - 기억을 삭제하기 위한 게이트
+        - $f_t = \sigma(W_{xf} x_t + W_{hf} h_{t-1} + b_f)$
+            - 현재 t시점 input과 t-1시점의 hidden state의 Linear combination에 sigmoid 함수를 씌운 값
+            - 이 값이 삭제 과정을 거친 정보의 양
+            - __0에 가까울 수록 많이 삭제된 것, 1에 가까울 수록 온전히 기억한 것__
+    - Cell state
+        - ![image](https://user-images.githubusercontent.com/81205952/203054503-ae0d7fd9-1995-4260-bc9f-29d3396f23f8.png)
+        - $C_t = f_t \dot C_{t-1} + i_t \dot g_t$
 
 
 
