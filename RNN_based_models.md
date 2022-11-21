@@ -24,6 +24,14 @@
     - Backward States(이후 시점의 hiddent state를 받아 현재의 은닉 상태를 계산)
 
 
+
+# LSTM
+## 기존 RNN(Vanila RNN)의 한계
+- 비교적 짧은 sequence에 대해서만 효과를 보임
+- sequence가 길어질 수록 앞의 
+
+
+
 - “the first sequence transduction model based entirely on **attention**”
 - **sequence-to-sequence** [https://wikidocs.net/24996]
     - Encoder, Decoder 구조를 갖는다.
