@@ -55,7 +55,7 @@
             - __0에 가까울 수록 많이 삭제된 것, 1에 가까울 수록 온전히 기억한 것__
     - Cell state
         - ![image](https://user-images.githubusercontent.com/81205952/203054503-ae0d7fd9-1995-4260-bc9f-29d3396f23f8.png)
-        - $C_t = f_t \dot C_{t-1} + i_t \dot g_t$
+        - $C_t = f_t \circ C_{t-1} + i_t \circ g_t$
 
 
 
