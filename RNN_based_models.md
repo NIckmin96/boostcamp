@@ -143,9 +143,9 @@
 - Transformer의 기본 원리 [https://wikidocs.net/31379]
     - __IDEA__ : RNN구조를 따로 사용하지 않고, attention(encoder, decoder)만으로 모델을 구성
     - Encoder
-        - Multi-head Self-attention + Feed forward Neural Network(FFNN)
-        - Self-attention
-            - Encoder내에서만 attention 수행
+        - __Multi-head Self-attention + Feed forward Neural Network(FFNN)__
+        - __Self-attention__
+            - __Encoder내에서만 attention 수행__
             - Query,Key,Value가 모두 Encoder에서 생성
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
             - Q,K,V를 얻는 방법
@@ -157,7 +157,7 @@
                 3. 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
                 4. 그 결과를 value 벡터에 곱해주고 sum을 취한 값을 사용 → **weighted sum of ‘value vector’**   
         - Transformer의 neural network는 가변적이고 유연한 모델이다 → 성능이 좋아짐
-        - Multi headed attention(MHA) : Attention을 병렬적으로 수행
+        - __Multi headed attention(MHA) : Attention을 병렬적으로 수행__
             - $d_{model}$의 차원을  $(d_{model}/num\ heads)$로 여러개로 나눠서 attention을 병렬적으로 진행후 concatenate
             - encoding 결과가 n개 나오게 된다
         - Positional encoding
