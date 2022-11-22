@@ -2,7 +2,7 @@
 - 은닉층(hidden layer)의 노드에서 활성화 함수를 통해 나온 결과값을 출력층으로 보내면서, 다시 은닉층 노드의 다음 계산의 입력으로 보내는 특징을 갖는다.
     - ![image](https://user-images.githubusercontent.com/81205952/203042419-7a84eba5-d723-4e94-a35d-5d36d4cab26c.png)
     - RNN의 cell(메모리 셀)은 이전의 값을 기억하려고 하는 메모리 역할을 수행
-    - 현재 t시점에서 셀이 갖고 있는 값은 과거 메모리 셀의 값에 영향을 받은 값이고 현재(t)메모리 셀이 갖고 있는 값을 __hidden state__라고 한다.
+    - 현재 t시점에서 셀이 갖고 있는 값은 과거 메모리 셀의 값에 영향을 받은 값이고 현재(t)메모리 셀이 갖고 있는 값을 __hidden state__ 라고 한다.
     - RNN은 'one-to-many', 'many-to-one', 'many-to-many'등의 형태로 설계 가능하고 각각의 형태에 따라 쓰임이 다르다.
 
 ## 간단한 수식 정의
@@ -32,12 +32,12 @@
 
 ## LSTM의 특징
 ![image](https://user-images.githubusercontent.com/81205952/203050704-7c8194c5-f0b8-4242-9666-51e8f2067568.png)
-- Hidden layer의 메모리 셀에 __[입력 게이트(input gate), 망각 게이트(forget gate), 출력 게이트(output gate)]__를 추가
+- Hidden layer의 메모리 셀에 __[입력 게이트(input gate), 망각 게이트(forget gate), 출력 게이트(output gate)]__ 를 추가
 - 불필요한 기억을 지우고, 기억해야할 것들을 정함
 - __Cell state__ : $C_t$
     - ![image](https://user-images.githubusercontent.com/81205952/203050810-b52e91f4-8da5-4a0f-a4ba-d292d94b4160.png)
     - Hidden state와 비슷하지만 3개의 게이트로 이루어져있다는 것이 차이점
-    - 3개의 게이트에는 공통적으로 __시그모이드 함수__가 존재
+    - 3개의 게이트에는 공통적으로 __시그모이드 함수__ 가 존재
         - 시그모이드 함수의 출력값(0~1)을 통해서 게이트를 조절하는데 사용
     - Input Gate(입력 게이트)
     - ![image](https://user-images.githubusercontent.com/81205952/203048813-5d61116f-e33e-402d-b511-940c4cb65a4c.png)
@@ -81,7 +81,7 @@
 - Encoder, Decoder 구조를 갖는다.
 - encoder, decoder는 각각 여러개의 RNN 셀로 구성이 되어있다.
 - <img src = "https://wikidocs.net/images/page/24996/%EC%9D%B8%EC%BD%94%EB%8D%94%EB%94%94%EC%BD%94%EB%8D%94%EB%AA%A8%EB%8D%B8.PNG">
-- Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector__라고 한다.
+- Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector(CV)__ 라고 한다.
 - Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
 - <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
 - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
