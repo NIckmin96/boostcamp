@@ -125,7 +125,7 @@
         - $\alpha^t = softmax(e^t)$
     3. 각 인코더의 attention weight와 hidden state를 가중합하여 attention value를 구한다
         - ![image](https://user-images.githubusercontent.com/81205952/203199290-99ce64d1-b030-42a8-9d46-dacefe0bf0f7.png)
-        - $a^t = \sum_{i=1}^N alpha_i^t h_i$
+        - $a^t = \sum_{i=1}^N \alpha_i^t h_i$
         - attention값은 종종 context vector로 불리기도 함
     4. 어텐션 값과 디코더의 t 시점의 은닉 상태를 연결(concatenate)
         - ![image](https://user-images.githubusercontent.com/81205952/203199554-1ee3d08c-e80f-4b0d-ade3-bbd626c98043.png)
