@@ -148,28 +148,38 @@
             - __Encoder내에서만 attention 수행__
             - Query,Key,Value가 모두 Encoder에서 생성
             - input을 vector로 encoding할 때, 각각의 $x$만을 고려하는 것이 아니라, 다른 $x_i$들도 고려하게 된다.
-            - Q,K,V를 얻는 방법
-                - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} * (d_{model}/num\ heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다   
-            - Embedding vector(Q,K,V) 생성 후,
-                - __Scaled Dot product Attention 진행__
+            - Self Attention 과정
                 1. Query , Key, Value vector를 embedding vector로 부터 만들어냄
-                2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산
-                3. 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → # value vector의 weight
+                - ![image](https://user-images.githubusercontent.com/81205952/203205055-a276b6ce-e1d2-4a32-ad45-9ee1186dc63c.png)
+                - Q,K,V를 얻는 방법
+                    - n개의 단어를 $d_{model}$의 차원 vector로 embedding 한 후에, $d_{model} * (d_{model}/num\ heads)$의 크기를 갖는 가중치 행렬과의 dot product연산으로 각각의 Q,K,V 벡터를 얻는다   
+                - ![image](https://user-images.githubusercontent.com/81205952/203206308-454a0c36-30cb-4f02-a537-ce41b0d37cf5.png)
+                2. 그 후, query와 나머지 다른 단어들의 key vector의 내적으로 score를 계산 : __Scaled Dot Product__
+                3. 그 값을 sqrt(key vector’s dim)으로 나누고 softmax 함수에 대입 → __value vector의 weight__ : __Scaled Dot Product__
+                - ![image](https://user-images.githubusercontent.com/81205952/203206415-61a33641-0b0d-4fa4-93c8-c999c804b165.png)
                 4. 그 결과를 value 벡터에 곱해주고 sum을 취한 값을 사용 → **weighted sum of ‘value vector’**   
-        - Transformer의 neural network는 가변적이고 유연한 모델이다 → 성능이 좋아짐
         - __Multi headed attention(MHA) : Attention을 병렬적으로 수행__
+            - ![image](https://user-images.githubusercontent.com/81205952/203206918-166c9024-7d27-4f78-99c0-02cfa1cbd19b.png)
             - $d_{model}$의 차원을  $(d_{model}/num\ heads)$로 여러개로 나눠서 attention을 병렬적으로 진행후 concatenate
             - encoding 결과가 n개 나오게 된다
+            - ![image](https://user-images.githubusercontent.com/81205952/203207176-9c363b6b-d534-4b03-9596-217d346fb3de.png)
+            - __각 head의 attention 결과를 concatenate한 후, 새로운 가중치 행렬에 대해 연산한 값을 Multi-head Attention값으로 최종적으로 사용__
         - Positional encoding
             - self-attention 연산은 input의 순서를 고려하지 않는다
             - 따라서, 주어진 입력에 어떤 값을 더해준다
         - Self Attention 후에는 feed forward 연산을 수행한다
     - Decoder
+        
         - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
         - 일반 seq2seq과 다르게 transformer는 input 단어의 encoding 결과를 순차적이지않고 한번에 받는다 -> 미래 시점의 단어도 참고할 수 있는 현상 발생 -> __look-ahead mask__ 도입
         - Look-ahead Mask
             - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습 : __Masked Decoder Attention__
-        - output 결과는 순서대로 나오게 됨
+        - output 결과는 순서대로 나오게 됨   
+    - Padding Mask
+        - ![image](https://user-images.githubusercontent.com/81205952/203206980-5d460c2b-edb3-4f25-b26e-aa9152c87f64.png)
+        - 패딩이 있을 경우 어텐션 연산에서 제외하기 위해 씌워주는 것
+    - Position-wise FFNN
+        - FFNN은 인코더와 디코더에서 공통적으로 가지고 있는 서브층
 - 다른 분야에 적용된 Transformer 기법
     - Vision Transformer
         - 이미지 데이터에 대해서 transformer 사용
