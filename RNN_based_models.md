@@ -169,11 +169,15 @@
             - 따라서, 주어진 입력에 어떤 값을 더해준다
         - Self Attention 후에는 feed forward 연산을 수행한다
     - Decoder
-        
-        - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
-        - 일반 seq2seq과 다르게 transformer는 input 단어의 encoding 결과를 순차적이지않고 한번에 받는다 -> 미래 시점의 단어도 참고할 수 있는 현상 발생 -> __look-ahead mask__ 도입
-        - Look-ahead Mask
-            - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습 : __Masked Decoder Attention__
+        - 첫번째 층 : __self attention & look-ahead mask__
+            - 일반 seq2seq과 다르게 transformer는 input 단어의 encoding 결과를 순차적이지않고 한번에 받는다 -> 미래 시점의 단어도 참고할 수 있는 현상 발생
+            - __look-ahead mask__ 도입
+            - Look-ahead Mask
+                - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습 : __Masked Decoder Attention__
+        - 두번째 층 : __인코더-디코더 어텐션__
+            - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
+            
+
         - output 결과는 순서대로 나오게 됨   
     - Padding Mask
         - ![image](https://user-images.githubusercontent.com/81205952/203206980-5d460c2b-edb3-4f25-b26e-aa9152c87f64.png)
