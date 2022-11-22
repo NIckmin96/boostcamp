@@ -176,8 +176,7 @@
                 - 이전 단어들에 대해서만 dependent, 이후 단어들에 대해서는 independent하게 학습 : __Masked Decoder Attention__
         - 두번째 층 : __인코더-디코더 어텐션__
             - key, value를 encoder에서 decoder로 보낸다 → Encoder-Decoder Attention
-            
-
+            - self attention이 아니다
         - output 결과는 순서대로 나오게 됨   
     - Padding Mask
         - ![image](https://user-images.githubusercontent.com/81205952/203206980-5d460c2b-edb3-4f25-b26e-aa9152c87f64.png)
