@@ -123,6 +123,18 @@
         - ![image](https://user-images.githubusercontent.com/81205952/203199079-eb139c37-0bbb-42b7-9b87-cfff422b5338.png)
         - Attention distribution의 각각의 값 : __Attention Weight__ -> 위 그림의 빨간 bar plot
         - $\alpha^t = softmax(e^t)$
+    3. 각 인코더의 attention weight와 hidden state를 가중합하여 attention value를 구한다
+        - ![image](https://user-images.githubusercontent.com/81205952/203199290-99ce64d1-b030-42a8-9d46-dacefe0bf0f7.png)
+        - $a^t = \sum_{i=1}^N alpha_i^t h_i$
+        - attention값은 종종 context vector로 불리기도 함
+    4. 어텐션 값과 디코더의 t 시점의 은닉 상태를 연결(concatenate)
+        - ![image](https://user-images.githubusercontent.com/81205952/203199554-1ee3d08c-e80f-4b0d-ade3-bbd626c98043.png)
+        - $a_t$(어텐션 값)와 $s_t$(디코더의 t시점의 hidden state)를 concat = $v_t$
+        - $v_t$를 디코더의 출력 예측값의 입력으로 사용 -> 인코더로부터의 정보를 좀 더 잘 활용할 수 있게 됨
+    5. 출력층 연산의 입력이 되는 $\tilde{s_t}$ 를 계산
+        - ![image](https://user-images.githubusercontent.com/81205952/203200497-09cb67f1-28ed-4213-8f40-4bcfbb3d2172.png)
+    6. $\tilde{s_t}$ 를 출력층의 입력으로 사용
+        - $\hat{y_t} = Softmax(W_y \tilde{s_t} + b_y)$
     
     
 # Transformer
