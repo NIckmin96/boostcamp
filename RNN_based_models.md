@@ -95,25 +95,36 @@
 - seq2seq의 단점   
     - seq2seq은 하나의 고정된 크기의 벡터에 모든 정보를 압축하려고 하기 때문에 정보 손실 발생
     - RNN모델의 문제인 Vanishing Gradient   
-- __Decoder에서 출력 단어를 예측하는 매시점마다 인코더에서의 전체 입력 문장을 다시 한번 참고하게 된다.__   
+- Attention의 특징
+    - __Decoder에서 출력 단어를 예측하는 매시점마다 인코더에서의 전체 입력 문장을 다시 한번 참고하게 된다__    
 - Query, Key, Value
     - Attention(Q,K,V) = Attention Value
     - Attention함수는 주어진 Query에 대해서 모든 Key와의 유사도를 각각 구하고, 이 유사도를 Value에 반영해주고 그 Value vector를 모두 더해서 return
     - __Query__ : t 시점의 디코더 셀에서의 hidden state = decoder의 현시점(t)에서의 Hidden state
-    - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping) = 
-    - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+    - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+    - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping) -> __Query, Key 벡터간의 유사도를 반영한 모든 시점에서의 hidden state__
     - Key, Value 는 Dictionary에서 사용하는 개념과 같다.   
 - Dot product Attention
     - ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+    - 디코더의 세번째 셀에서 출력 단어를 예측할 떄를 가정
+    - 출력 단어를 예측하기 위해 인코더의 모든 단어들의 embedding vector를 참고
+    - 위의 빨간 bar plot을 통해 softmax함수의 연산 결과를 표시, 직사각형의 크기가 클수록 도움이 되는 정도의 크기가 큼
+    - 이 정보를 하나의 정보(초록색 화살표)로 담아서 디코더로 전송   
+- Dot Product Attention 연산 과정
+    1. Attention score 구하기
+        - Attention Score : __현재 디코더의 시점 t에서 단어를 예측하기 위해, 인코더의 모든 은닉 상태 각각이 디코더의 현 시점의 은닉 상태( $s_t$ )와 얼마나 유사한지를 판단하는 score__
+        - ![image](https://user-images.githubusercontent.com/81205952/203197262-9f78a1b2-c29c-4eda-8344-34b2f270cb9c.png)
+        - $s_t^T \cdot h_i$ : 현 시점의 은닉 상태( $s_t$ )와 인코더의 각 시점의 은닉상태( $h_i$ )에 대한 내적
+        - ![image](https://user-images.githubusercontent.com/81205952/203198266-57df5714-0a10-46ab-b3d9-f69a68e73914.png)   
+        - 계산된 각 attention score를 모아 $e^t$ 라고 정의
+        - $e^t = [s_t^T h_1,...,s_t^T h_N]
+    2. Softmax를 통해 Attention Distribution을 구하기
+        - 
+    
     
 # Transformer
 
 - “the first sequence transduction model based entirely on **attention**”
-- **sequence-to-sequence** [https://wikidocs.net/24996]
-
-- Attention
-
-
 - Transformer의 기본 원리 [https://wikidocs.net/31379]
     - __IDEA__ : RNN구조를 따로 사용하지 않고, attention(encoder, decoder)만으로 모델을 구성
     - Encoder
