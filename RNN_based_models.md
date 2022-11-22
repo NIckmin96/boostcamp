@@ -72,19 +72,27 @@
 
 # Encoder-Decoder
 
+- 두개의 RNN을 사용해서, 하나는 Encoder, 다른 하나는 Decoder로 명명하고 두개의 RNN을 연결해서 사용하는 구조
+- 주로 입력 sequence와 출력 sequence가 달을 경우에 사용
+    - 번역기, 텍스트 요약 등
+
+# Sequence-to-Sequence(Seq2Seq)
+
+- Encoder, Decoder 구조를 갖는다.
+- encoder, decoder는 각각 여러개의 RNN 셀로 구성이 되어있다.
+- <img src = "https://wikidocs.net/images/page/24996/%EC%9D%B8%EC%BD%94%EB%8D%94%EB%94%94%EC%BD%94%EB%8D%94%EB%AA%A8%EB%8D%B8.PNG">
+- Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector__라고 한다.
+- Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
+- <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
+- 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
+- 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
+- e.g. French → English
+
 # Transformer
 
 - “the first sequence transduction model based entirely on **attention**”
 - **sequence-to-sequence** [https://wikidocs.net/24996]
-    - Encoder, Decoder 구조를 갖는다.
-    - encoder, decoder는 각각 여러개의 RNN 셀로 구성이 되어있다.
-    - <img src = "https://wikidocs.net/images/page/24996/%EC%9D%B8%EC%BD%94%EB%8D%94%EB%94%94%EC%BD%94%EB%8D%94%EB%AA%A8%EB%8D%B8.PNG">
-    - Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector__라고 한다.
-    - Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
-    - <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
-    - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
-    - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
-    - e.g. French → English
+
 - Attention
     - seq2seq의 단점   
         - seq2seq은 하나의 고정된 크기의 벡터에 모든 정보를 압축하려고 하기 때문에 정보 손실 발생
