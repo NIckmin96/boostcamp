@@ -119,7 +119,10 @@
         - 계산된 각 attention score를 모아 $e^t$ 라고 정의
         - $e^t = [s_t^T h_1,...,s_t^T h_N]$
     2. Softmax를 통해 Attention Distribution을 구하기
-        - 
+        - $e^t$에 소프트맥스 함수를 적용 : __Attention Distribution__
+        - ![image](https://user-images.githubusercontent.com/81205952/203199079-eb139c37-0bbb-42b7-9b87-cfff422b5338.png)
+        - Attention distribution의 각각의 값 : __Attention Weight__ -> 위 그림의 빨간 bar plot
+        - $\alpha^t = softmax(e^t)$
     
     
 # Transformer
