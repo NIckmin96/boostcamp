@@ -117,7 +117,7 @@
         - $s_t^T \cdot h_i$ : 현 시점의 은닉 상태( $s_t$ )와 인코더의 각 시점의 은닉상태( $h_i$ )에 대한 내적
         - ![image](https://user-images.githubusercontent.com/81205952/203198266-57df5714-0a10-46ab-b3d9-f69a68e73914.png)   
         - 계산된 각 attention score를 모아 $e^t$ 라고 정의
-        - $e^t = [s_t^T h_1,...,s_t^T h_N]
+        - $e^t = [s_t^T h_1,...,s_t^T h_N]$
     2. Softmax를 통해 Attention Distribution을 구하기
         - 
     
