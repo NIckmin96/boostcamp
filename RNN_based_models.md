@@ -81,33 +81,38 @@
 - Encoder, Decoder 구조를 갖는다.
 - encoder, decoder는 각각 여러개의 RNN 셀로 구성이 되어있다.
 - <img src = "https://wikidocs.net/images/page/24996/%EC%9D%B8%EC%BD%94%EB%8D%94%EB%94%94%EC%BD%94%EB%8D%94%EB%AA%A8%EB%8D%B8.PNG">
-- Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector(CV)__ 라고 한다.
-- Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
-- Decoder는 초기 입력값으로 문장의 시작을 의미하는 __<sos>__ 가 들어가고 문장의 끝을 의미하는 __<eos>__ 가 예측될 때까지 output의 예측을 반복한다.
-- <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
+- Model Architecture
+    - Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector(CV)__ 라고 한다.
+    - Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
+    - Decoder는 초기 입력값으로 문장의 시작을 의미하는 __<sos>__ 가 들어가고 문장의 끝을 의미하는 __<eos>__ 가 예측될 때까지 output의 예측을 반복한다.
+    - <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
 - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
 - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
 - e.g. French → English
+    
+# Attention
 
+- seq2seq의 단점   
+    - seq2seq은 하나의 고정된 크기의 벡터에 모든 정보를 압축하려고 하기 때문에 정보 손실 발생
+    - RNN모델의 문제인 Vanishing Gradient   
+- __Decoder에서 출력 단어를 예측하는 매시점마다 인코더에서의 전체 입력 문장을 다시 한번 참고하게 된다.__   
+- Query, Key, Value
+    - Attention(Q,K,V) = Attention Value
+    - Attention함수는 주어진 Query에 대해서 모든 Key와의 유사도를 각각 구하고, 이 유사도를 Value에 반영해주고 그 Value vector를 모두 더해서 return
+    - __Query__ : t 시점의 디코더 셀에서의 hidden state = decoder의 현시점(t)에서의 Hidden state
+    - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping) = 
+    - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping)
+    - Key, Value 는 Dictionary에서 사용하는 개념과 같다.   
+- Dot product Attention
+    - ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+    
 # Transformer
 
 - “the first sequence transduction model based entirely on **attention**”
 - **sequence-to-sequence** [https://wikidocs.net/24996]
 
 - Attention
-    - seq2seq의 단점   
-        - seq2seq은 하나의 고정된 크기의 벡터에 모든 정보를 압축하려고 하기 때문에 정보 손실 발생
-        - RNN모델의 문제인 Vanishing Gradient   
-    - __Decoder에서 출력 단어를 예측하는 매시점마다 인코더에서의 전체 입력 문장을 다시 한번 참고하게 된다.__   
-    - Query, Key, Value
-        - Attention(Q,K,V) = Attention Value
-        - Attention함수는 주어진 Query에 대해서 모든 Key와의 유사도를 각각 구하고, 이 유사도를 Value에 반영해주고 그 Value vector를 모두 더해서 return
-        - __Query__ : t 시점의 디코더 셀에서의 hidden state = decoder의 현시점(t)에서의 Hidden state
-        - __Key__ : 모든 시점의 인코더 셀의 hidden state(mapping) = 
-        - __Value__ : 모든 시점의 인코더 셀의 hidden state(mapping)
-        - Key, Value 는 Dictionary에서 사용하는 개념과 같다.   
-    - Dot product Attention
-        - ![image](https://user-images.githubusercontent.com/81205952/194202905-b1050cbd-bd0f-4ce8-9ae9-0a4cd2ee5f94.png)
+
 
 - Transformer의 기본 원리 [https://wikidocs.net/31379]
     - __IDEA__ : RNN구조를 따로 사용하지 않고, attention(encoder, decoder)만으로 모델을 구성
