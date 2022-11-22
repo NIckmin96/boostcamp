@@ -84,7 +84,7 @@
 - Model Architecture
     - Encoder에서 각각의 단어에 대해 embedding된 결과를 입력으로 받아 Encoder의 RNN Structure를 통과한 후, 마지막 cell의 hidden state를 Decoder의 첫번째 cell의 hidden state input으로 넣어주는데 이를 __context vector(CV)__ 라고 한다.
     - Decoder에서는 각 셀의 output gate에서 나온 결과에 softmax함수를 적용해 모델이 가지고 있는 단어 후보군으로부터 어떤 단어를 출력할지 계산하고 결정하게 된다.
-    - Decoder는 초기 입력값으로 문장의 시작을 의미하는 __<sos>__ 가 들어가고 문장의 끝을 의미하는 __<eos>__ 가 예측될 때까지 output의 예측을 반복한다.
+    - Decoder는 초기 입력값으로 문장의 시작을 의미하는 <sos> 가 들어가고 문장의 끝을 의미하는 <eos> 가 예측될 때까지 output의 예측을 반복한다.
     - <img src = "https://wikidocs.net/images/page/24996/decodernextwordprediction.PNG">
 - 하나의 모델에서입력 시퀀스와 출력 시퀀스의 개수가 다를 수 있다.
 - 입력 시퀀스의 도메인과 출력 시퀀스의 도메인이 다를 수 있다.
