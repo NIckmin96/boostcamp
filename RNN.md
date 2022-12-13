@@ -1,0 +1,43 @@
+- Sequential Model + Data
+- Input data의 shape(length)에 상관없이 모델이 동작해야함
+    - Fix the past time span : Markov Model(First order autoregressive model)
+    - Latent Autoregressive Model
+        - Hidden State(과거의 정보를 요약) → Hidden state를 input으로 다시 사용
+- Short-term Dependencies : Vanila RNN의 단점
+    - 과거의 정보가 미래까지 살아남기 힘들다
+- **Activation Functions** in Recurrent Neural Network
+    - Sigmoid : Vanishing Gradient
+    - ReLU : Exploding Gradient
+    - **tanh**
+- LSTM(Long Short Term Memory) https://wikidocs.net/22888
+    - Data
+        - Input
+        - Previous Cell State
+        - Previous Hidden State
+        - Output(Hidden State)
+    - Gate
+        - Forget Gate : 어떤 정보를 cell state에서 버릴지 결정
+        - Input Gate : 어떤 정보를 cell state에 저장할지 결정
+            - $i_t = \sigma(W_{xi}x_t+W_{hi}h_{t-1}+b_i)$
+            - 이전 시점의 hidden state와 현재 시점의 input 데이터에 각각 가중치를 곱하여 더한 값에 시그모이드 함수를 거친 값
+            - $C_t = tanh(W_{xg}x_t+W_{hg}h_{t-1}+b_g)$
+            - 이전 시점의 hidden state와 현재 시점의 input 데이터에 각각 가중치를 곱하여 더한 값에 하이퍼볼릭탄젠트 함수를 거친 값
+        - Output Gate
+        - __Cell State를 구하는 법__
+            - $C_t = f_t \circ C_{t-1} + i_t \circ g_t$
+            - forget gate의 결과와 이전 시점의 cell state의 원소곱 + 입력 게이트의 결과끼리의 원소곱
+            - 만약, 삭제 게이트의 출력값인 $f_t$가 0이라면, 이전 시점의 cell state값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 현재 시점의 입력 게이트 결과만이 현재 시점의 cell state를 결정한다. 
+            - 반대로 입력 게이트의 $i_t$가 0이라면, 현재 시점의 input값은 현재 시점의 cell state에 0으로 더해지기 때문에 오직 이전 시점의 cell state만이 현재 시점의 cell state를 결정한다. 
+- GRU(Gated Recurrent Unit)
+    - Two gates
+        - Reset Gate
+        - Update Gate
+    - No cell state, just hidden state
+
+- cf) Bidirectional RNN
+    - 시점 t에서의 출력값을 예측할때 이전 시점의 입력뿐만 아니라, 이후 시점의 입력 또한 예측에 기여할 수 있다는 아이디어에 기반
+    - e.g. 운동을 열심히 하는 것은 [    ]을 늘리는데 효과적이다.
+    - 이전의 단어 뿐만 아니라 이후의 단어를 고려해야 문제를 맞출 수 있다.
+    - 2개의 메모리 cell 사용
+        - 한개는 이전 시점의 hidden state(Forward State)를 전달 받아 현재 시점의 hidden state를 계산
+        - 다른 한개는 이후 시점의 hidden state(Backward State)를 전달 받아 현재 시점의 hidden state를 계산

@@ -1,0 +1,15 @@
+- Filter의 개수에 따라 output의 channel이 결정된다
+    - Stack of Convolutions
+- 학습에 필요한 parameter의 수가 많아질 수록 성능이 낮아지게 된다
+    - FC layer의 파라미터 수를 줄여나가는 추세
+- Stride(보폭)
+- Padding(Boundary)
+- Convolution Arithmetic
+    - Parameter개수 계산해보기
+- 1 x 1 Convolution
+    - Dimension(Channel) Reduction
+    - Parameter수를 줄이는 목적
+    - e.g. bottleneck architecture
+- **Q. Kernel을 정사각형이 아닌 다른 형태로 구성해도 괜찮은가?**
+    - 다른 모양의 kernel도 가능하다!
+    - https://openreview.net/forum?id=r1vuQG-CW&fbclid=IwAR0ybrDv0SY-IzI3t7Eo914a1bGL8Wu5bJjKDVA2BuugVa6TERquVL12rM4
