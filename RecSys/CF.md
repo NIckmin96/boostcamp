@@ -80,3 +80,8 @@
 
 ## Factorizing Personalized Markov Chains
 - 사용자와 아이템 간의 관계 및 __아이템과 바로 이전 아이템의 관계__ 를 함께 모델링
+- cf) Markov property : 다음 스텝의 상태는 이전의 상태에만 영향을 받음
+- 유저와 다음 아이템의 compatibility + 이전 아이템과 다음 아이템의 compatibility + 사용자와 이전 아이템의 compatibility
+
+## Personalized Ranking Metric Embedding(PRME)
+- Compatibility를 계산하는 방식으로 inner product 대신, __Euclidean Distance__ 를 사용
