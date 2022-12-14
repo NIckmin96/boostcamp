@@ -76,7 +76,7 @@
 - Sequential scenario에 대처 가능. MF는 sequence를 고려하지 않음
 - 해결 방안
   - Item vector를 입렬으로 ㅂ다아서 추천 결과를 생성하는 형태의 모델 생성
-  - $ f(u,i) = R_u \cdot W_i = \sum R_{u,j} W_{i,j} $
+  - $f(u,i) = R_u \cdot W_i = \sum R_{u,j} W_{i,j}$
 
 ## Bayesian Personalized Ranking(BPR)
 - 사용자의 선호도를 두 아이템간의 pairwise-ranking 문제로 formulation 함으로써 각 사용자의 personalized ranking function을 추정
