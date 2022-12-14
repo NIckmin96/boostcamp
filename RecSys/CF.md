@@ -76,7 +76,14 @@
 - Sequential scenario에 대처 가능. MF는 sequence를 고려하지 않음
 - 해결 방안
   - Item vector를 입렬으로 ㅂ다아서 추천 결과를 생성하는 형태의 모델 생성
-  - $f(u,i) = R_u \cdot W_i = \sum R_{u,j} W_{i,j}$
+  - $f(u,i) = R_u \cdot W_i = \sum R_{u,j} W_{i,j}$ (이력이 존재하는 item에 대해서만,)
+  - item간의 유사도(W)와 item에 대한 user rating(R)을 inner product 함으로써 compatibility function 계산
+  - Item-based CF와 유사한 로직. 하지만 metric이 다름(Item-based : cosine, jaccard, pearson, euclidean... vs __parameter training__ )
+- SLIM(Sparse Linear Methods for Top-N Recommender Systems)
+  - 행렬 W를 학습하기 위해서 elastic net regularization term 추가
+  - 위의 식에 따라 W를 학습하고 __새로운 사용자가 추가되더라도 학습된 W가 있으므로 추천 결과 생성 가능__
+- FISM(Factored Item Similarity Model)
+  - 
 
 ## Bayesian Personalized Ranking(BPR)
 - 사용자의 선호도를 두 아이템간의 pairwise-ranking 문제로 formulation 함으로써 각 사용자의 personalized ranking function을 추정
