@@ -57,9 +57,9 @@
   - 모든 평점이 동일한 신뢰도를 갖지 않으므로 __confidence level term__ 추가
     - 대규모 광고 집행과 같이 특정 아이템이 많이 노출되어 클릭되는 경우
     - implicit feedback
-      - preference
+      - + preference
         - 유저가 아이템을 선호하는지 여부를 binary하게 표현
-      - confidence
+      - + confidence
         - 유저가 아이템을 선호하는 정도를 나타내는 increasing function
 - Adding temporal dynamics
   - 시간에 따라 변화하는 유저, 아이템의 특성 반영
@@ -70,6 +70,13 @@
 - SGD와의 비교 
   - SGD과 비교해서 sparse Data에 대해 Robust함
   - 대용량 데이터를 병렬처리하여 빠른 학습 가능
+
+### "User-Free" Model-based Approaches
+- cold start user 대처 가능
+- Sequential scenario에 대처 가능. MF는 sequence를 고려하지 않음
+- 해결 방안
+  - Item vector를 입렬으로 ㅂ다아서 추천 결과를 생성하는 형태의 모델 생성
+  - $ f(u,i) = R_u \cdot W_i = \sum R_{u,j} W_{i,j} $
 
 ## Bayesian Personalized Ranking(BPR)
 - 사용자의 선호도를 두 아이템간의 pairwise-ranking 문제로 formulation 함으로써 각 사용자의 personalized ranking function을 추정
