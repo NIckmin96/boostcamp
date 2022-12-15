@@ -16,6 +16,22 @@
   - 아이템이나 유저가 계속 늘어날 경우 확장성이 떨어진다
   - 데이터가 적을 경우, 성능이 저하된다
 
+### Approximate Nearest Neighbor(ANN)
+- Nearest Neighbor(NN)
+  - Query Vector와 가장 유사한 Vector를 찾는 알고리즘
+- Brute Force KNN
+  - 연산량 너무 많음
+- NN를 정확히 찾는 것이 아니라 Approximate NN를 찾는 방법 고안
+  - 정확도는 조금 감소하지만 연산량 대폭 감소
+- ANNOY
+  - 주어진 벡터들을 여러개의 subset으로 나누어 tree 형태의 자료구조로 구성하고 이를 활용하여 탐색
+  1. vector space에서 임의의 두 점을 선택, 두 점 사이의 hyperplane으로 space 분리
+  2. subspace에 있는 점들의 개수를 node로 하여 binary tree생성
+  3. subspace내에 점이 K개 초과 존재한다면 해당 space 다시 분할(1,2)
+- Hierarchical Navigable Small World Graphs(HNSW)
+- Inverted File Index(IVF)
+- Product Qunatization - Compression
+
 ### K-Nearest Neighbors CF(KNN CF)
 - 기본 NBCF는 모든 유사도를 고려해야 한다는 단점이 존재
   - 유저가 많아질 수록, 연산은 늘어나고 성능이 떨어지기도 함
@@ -29,6 +45,8 @@
     - 집합의 개념을 사용한 유사도
   - Pearson Similarity
     - 상관계수
+
+### Item2Vec
 
 ## Model Based CF
 - 항목간 유사성을 단순 비교하는 것에서 벗어나, __데이터에 내재한 패턴을 이용해__ 추천하는 CF기법
@@ -99,3 +117,34 @@
 
 ## Personalized Ranking Metric Embedding(PRME)
 - Compatibility를 계산하는 방식으로 inner product 대신, __Euclidean Distance__ 를 사용
+
+## DL based CF
+User, item의 관계를 모델링할 떄, inner product대신 DNN을 사용(Nonlinearity 표현 가능!)
+
+### Autoencdoer 기반 CF
+- Rating prediction
+  - __Rating값__ 을 reconstruction 하도혹 학습
+- Top-K Ranking
+  - __interaction이 발생할 확률__ 을 reconstruncion 하도록 학습
+- Row-by-Row input
+- AutoRec : Autoencoders Meed Collaborative Filtering
+  - Autoencoder based
+  - Item AutoRec보다 User AutoRec이 성능이 대체로 좋음
+  - Encoder/Decoder별 activation function을 어떻게 조합하는지에 따라 성능의 차이가 큼
+  - Hidden layer의 뉴런수, 레이어의 개수를 높이면 더 높은 성능
+
+### DL based CF for Rating Prediction
+- Explicit Feedback
+- Restricted Boltzmannn Machines for Collaborative Filtering
+  - 최초로 Neural Net을 활용한 추천 모델중 하나
+  - 1~5점의 rating을 {1,2,3,4,5}의 label을 prediction하는 classification 문제로 접근
+
+### DL based CF for Top-K Ranking
+- Implicit Feedback
+- NeuMF(Neural Matrix Factorization = Generalized MF + MLP)
+  - Element-wise product(MF) + concatenation(MLP)
+    - MF : element-wise product of user, item vector
+    - MLP : concatenation of user, item vector -> MLP Layer
+- CDAE(Collaborative denoising autoencoders for top-n recommender systems)
+  - Denoising autoencoder based
+  - input layer에 
