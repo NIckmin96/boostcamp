@@ -118,7 +118,7 @@
 ## Personalized Ranking Metric Embedding(PRME)
 - Compatibility를 계산하는 방식으로 inner product 대신, __Euclidean Distance__를 사용
 
-## DL based CF
+## DL-based CF
 User, item의 관계를 모델링할 떄, inner product대신 DNN을 사용(Nonlinearity 표현 가능!)
 
 ### Autoencdoer 기반 CF
@@ -158,3 +158,21 @@ User, item의 관계를 모델링할 떄, inner product대신 DNN을 사용(Nonl
       - ERM(Empirical Risk Minimization)
       - GAN
       - Diffusion models
+
+## Side-information
+CF에서는 Cold start의 경우에는 interaction data가 충분하지 않아서 사용자와 아이템의 latent factor를 잘 학습할 수 없고, Temporal evolution을 고려하지 못한다.
+따라서, side-information을 활용함으로써 문제를 완화 가능!
+- Content based
+- Context based
+
+### Context-aware Recommendations
+- FM(Factorization Machine)
+  - user,item interaction + feature도 latent facor modeling
+
+### Wide&Deep Model
+- Memorization(Wide) + Generalization(Deep)
+
+### DeepFM
+- FM + DNN
+
+### Textual, Visual, Auditory, Social Content
