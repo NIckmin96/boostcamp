@@ -116,16 +116,16 @@
 - 유저와 다음 아이템의 compatibility + 이전 아이템과 다음 아이템의 compatibility + 사용자와 이전 아이템의 compatibility
 
 ## Personalized Ranking Metric Embedding(PRME)
-- Compatibility를 계산하는 방식으로 inner product 대신, __Euclidean Distance__ 를 사용
+- Compatibility를 계산하는 방식으로 inner product 대신, __Euclidean Distance__를 사용
 
 ## DL based CF
 User, item의 관계를 모델링할 떄, inner product대신 DNN을 사용(Nonlinearity 표현 가능!)
 
 ### Autoencdoer 기반 CF
 - Rating prediction
-  - __Rating값__ 을 reconstruction 하도혹 학습
+  - __Rating값__을 reconstruction 하도혹 학습
 - Top-K Ranking
-  - __interaction이 발생할 확률__ 을 reconstruncion 하도록 학습
+  - __interaction이 발생할 확률__을 reconstruncion 하도록 학습
 - Row-by-Row input
 - AutoRec : Autoencoders Meed Collaborative Filtering
   - Autoencoder based
@@ -147,4 +147,14 @@ User, item의 관계를 모델링할 떄, inner product대신 DNN을 사용(Nonl
     - MLP : concatenation of user, item vector -> MLP Layer
 - CDAE(Collaborative denoising autoencoders for top-n recommender systems)
   - Denoising autoencoder based
-  - input layer에 
+  - input layer에 user를 알려주는 user node 추가
+    - user bias 추가하는 효과
+  - Multi-VAE
+    - VAE(Variational AutoEncoder) : Generative Model의 일종
+    - To Learn
+      - KL-Divergence
+      - ELBO
+      - Chain Rule 수식 유도
+      - ERM(Empirical Risk Minimization)
+      - GAN
+      - Diffusion models
